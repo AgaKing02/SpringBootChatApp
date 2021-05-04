@@ -1,5 +1,6 @@
 package kz.aitu.chat.service;
 
+import kz.aitu.chat.model.Chat;
 import kz.aitu.chat.model.Participant;
 import kz.aitu.chat.model.Users;
 import kz.aitu.chat.repository.ChatRepository;
@@ -29,5 +30,17 @@ public class ChatService {
             return users;
         }
         throw new NullPointerException("Chat does not exist");
+    }
+
+    public List<Chat> findAll() {
+        return chatRepository.findAll();
+    }
+
+    public Chat save(Chat message) {
+        return chatRepository.save(message);
+    }
+
+    public void deleteById(Long id) {
+        chatRepository.deleteById(id);
     }
 }
